@@ -15,7 +15,8 @@ class Board extends Component {
 
 		this.state = {
 			board: this.createBoard(),
-			currPlayer: "X"
+			currPlayer: "X",
+			winner: ""
 		}
 	}
 
@@ -32,6 +33,46 @@ class Board extends Component {
 		})
 
 		this.togglePlayer()
+
+		this.findWinner()
+	}
+
+	findWinner() {
+		// let winner;
+		// // check rows
+		// for (let i = 0; i < this.props.N_ROWS; i++) {
+		// 	let row = this.state.board[i];
+		// 	console.log("this is a row: "+row)
+		// 	if (row => row.every(val => val === row[0])) winner = row[0];
+		// }
+
+		// // check columns
+		// for (let i = 0; i < this.props.N_ROWS; i++) {
+		// 	let col = [];
+		// 	for (let j = 0; j < this.props.N_COLS; j++) {
+		// 		col.push(this.state.board[i][j])
+		// 	}
+		// 	if (col => col.every(val => val === col[0])) winner = col[0];
+		// }
+
+		// // check diagonals
+		// for (let i = 0, j = 0; i < this.props.N_ROWS, j < this.props.N_COLS; i++, j++) {
+		// 	let diag = [];
+		// 	diag.push(this.state.board[i][j])
+		// 	if (diag => diag.every(val => val === diag[0])) winner = diag[0];
+		// }
+
+		// for (let i = 0, j = this.props.N_COLS - 1; i < this.props.N_ROWS, j >= 0; i++, j--) {
+		// 	let diag = [];
+		// 	diag.push(this.state.board[i][j])
+		// 	if (diag => diag.every(val => val === diag[0])) winner = diag[0];
+		// }
+
+		// this.setState({
+		// 	winner: winner
+		// })
+
+		// console.log(this.state.winner)
 	}
 
 	togglePlayer() {

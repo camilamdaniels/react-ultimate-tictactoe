@@ -6,6 +6,12 @@
 
 .UltimateBoard {
 	font-family: 'Montserrat', sans-serif;
+	color: white;
+	padding: 80px;
+}
+
+.UltimateBoard-title {
+	text-transform: uppercase;
 }
 
 .UltimateBoard-grid {
