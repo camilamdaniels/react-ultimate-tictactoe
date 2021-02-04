@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Board from './Board'
-import './Board.css'
+import './UltimateBoard.css'
 
 class UltimateBoard extends Component {
 
@@ -22,9 +22,11 @@ class UltimateBoard extends Component {
 
 		return(
 			<div className="UltimateBoard">
-				<h1>Ultimate Tic-Tac-Toe</h1>
-				<div className="UltimateBoard-grid">
-					{boards}
+				<h1 className="UltimateBoard-title">Ultimate Tic-Tac-Toe</h1>
+				<div className="UltimateBoard-container">
+					<div className="UltimateBoard-grid">
+						{boards}
+					</div>
 				</div>
 			</div>
 		)

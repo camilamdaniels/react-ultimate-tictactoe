@@ -1,0 +1,13 @@
+.UltimateBoard-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.UltimateBoard-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 50px;
+	padding: 80px;
+	align-items: center;
+}
