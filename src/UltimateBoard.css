@@ -4,6 +4,10 @@
 	align-items: center;
 }
 
+.UltimateBoard {
+	font-family: 'Montserrat', sans-serif;
+}
+
 .UltimateBoard-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
