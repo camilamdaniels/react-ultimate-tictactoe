@@ -16,11 +16,14 @@ class Board extends Component {
 		this.state = {
 			board: this.createBoard(),
 			currPlayer: "X",
-			winner: ""
+			winner: "",
+			gameOver: false
 		}
 	}
 
 	markCell(i, j) {
+
+		if (this.state.gameOver) return;
 
 		let board = this.state.board;
 
@@ -38,41 +41,60 @@ class Board extends Component {
 	}
 
 	findWinner() {
-		// let winner;
-		// // check rows
-		// for (let i = 0; i < this.props.N_ROWS; i++) {
-		// 	let row = this.state.board[i];
-		// 	console.log("this is a row: "+row)
-		// 	if (row => row.every(val => val === row[0])) winner = row[0];
-		// }
+		if (this.state.gameOver) return;
 
-		// // check columns
-		// for (let i = 0; i < this.props.N_ROWS; i++) {
-		// 	let col = [];
-		// 	for (let j = 0; j < this.props.N_COLS; j++) {
-		// 		col.push(this.state.board[i][j])
-		// 	}
-		// 	if (col => col.every(val => val === col[0])) winner = col[0];
-		// }
+		let winner = '';
+		const board = this.state.board;
 
-		// // check diagonals
-		// for (let i = 0, j = 0; i < this.props.N_ROWS, j < this.props.N_COLS; i++, j++) {
-		// 	let diag = [];
-		// 	diag.push(this.state.board[i][j])
-		// 	if (diag => diag.every(val => val === diag[0])) winner = diag[0];
-		// }
+		// check rows
+		for (let row = 0; row < board.length; row++) {
+			let currRow = [];
+			for (let col = 0; col < board[row].length; col++) {
+					currRow.push(board[row][col])
+			}
+			if (currRow.every(v => v === 'X')) winner = 'X';
+			if (currRow.every(v => v === 'O')) winner = 'O';
+		}
 
-		// for (let i = 0, j = this.props.N_COLS - 1; i < this.props.N_ROWS, j >= 0; i++, j--) {
-		// 	let diag = [];
-		// 	diag.push(this.state.board[i][j])
-		// 	if (diag => diag.every(val => val === diag[0])) winner = diag[0];
-		// }
+		// check cols 
+		for (let col = 0; col < board[0].length; col++) {
+			let currCol = [];
+			for (let row = 0; row < board.length; row++) {
+				currCol.push(board[row][col]);
+			}
+			if (currCol.every(v => v === 'X')) winner = 'X';
+			if (currCol.every(v => v === 'O')) winner = 'O';
+		}
 
-		// this.setState({
-		// 	winner: winner
-		// })
+		// check left diagonal
+		let leftDiag = [];
+		for (let row = 0, col = 0; row < board.length, col < board.length; row++, col++) {
+				leftDiag.push(board[row][col])
+		}
+		if (leftDiag.every(v => v === 'X')) winner = 'X';
+		if (leftDiag.every(v => v === 'O')) winner = 'O';
 
-		// console.log(this.state.winner)
+		// check right diagonal
+		let rightDiag = [];
+		for (let row = 0, col = board.length - 1; row < board.length, col >= 0; row++, col--) {
+			rightDiag.push(board[row][col])
+		}
+		if (rightDiag.every(v => v === 'X')) winner = 'X';
+		if (rightDiag.every(v => v === 'O')) winner = 'O';
+
+		if (!this.state.winner) {
+			this.setState({
+				winner: winner
+			})
+		}
+
+		if (this.state.winner) {
+			this.setState({
+				gameOver: true
+			})
+		}
+
+		console.log(this.state.winner)
 	}
 
 	togglePlayer() {
@@ -91,6 +113,9 @@ class Board extends Component {
 
 		for (let i = 0; i < this.props.N_ROWS; i++) {
 			let row = [];
+			for (let j = 0; j < this.props.N_COLS; j++) {
+				row.push('-');
+			}
 			board.push(row);
 		} 
 
@@ -98,6 +123,11 @@ class Board extends Component {
 	}
 
 	render() {
+		if (this.state.gameOver) {
+			return (
+					<div className="Board Board-winner">{this.state.winner}</div>
+			)
+		}
 
 		let cells = [];
 
@@ -112,7 +142,7 @@ class Board extends Component {
 		}
 
 		return(
-			<div className="Board-grid">{cells}</div>
+			<div className="Board Board-grid">{cells}</div>
 		)
 	}
 }

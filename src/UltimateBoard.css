@@ -17,7 +17,7 @@
 .UltimateBoard-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 50px;
-	padding: 80px;
+	/*gap: 50px;*/
+	/*padding: 80px;*/
 	align-items: center;
 }

@@ -17,7 +17,7 @@ class Cell extends Component {
 	render() {
 		return(
 			<div className="Cell" onClick={this.handleClick}>
-				{this.props.value}
+				{this.props.value === '-' ? null : this.props.value}
 			</div>
 		)
 	}
