@@ -18,7 +18,8 @@
 }
 
 .Board:nth-child(1),
-.Board:nth-child(2) {
+.Board:nth-child(2),
+.Board:nth-child(3) {
   border-bottom: 1px solid white;
 }
 
@@ -28,6 +29,11 @@
 	border-top: 1px solid white;
 }
 
-.Board:nth-child() {
+.Board:nth-child(1),
+.Board:nth-child(2),
+.Board:nth-child(4),
+.Board:nth-child(5),
+.Board:nth-child(7),
+.Board:nth-child(8) {
 	border-right: 1px solid white;
 }
