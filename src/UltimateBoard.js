@@ -130,9 +130,9 @@ class UltimateBoard extends Component {
 		for (let i = 0; i < this.props.N_ROWS; i++) {
 			let row = [];
 			for (let j = 0; j < this.props.N_COLS; j++) {
-				row.push(<Board value={this.state.ultimateBoard[i][j]} showValue={() => this.markBoard(i, j)} winner={this.state.winner}/>)
+				row.push(<Board key={`${i}-${j}`} value={this.state.ultimateBoard[i][j]} showValue={() => this.markBoard(i, j)} winner={this.state.winner}/>)
 			}
-			boards.push(<div>{row}</div>)
+			boards.push(<div key={i}>{row}</div>)
 		}
 
 		return(
@@ -307,10 +307,10 @@ class Board extends Component {
 			let row = [];
 			for (let j = 0; j < this.props.N_COLS; j++) {
 				row.push(
-					<Cell value={this.state.board[i][j]} showValue={() => this.markCell(i, j)}/>
+					<Cell key={`${i}-${j}`}value={this.state.board[i][j]} showValue={() => this.markCell(i, j)}/>
 				)
 			}
-			cells.push(<div>{row}</div>)
+			cells.push(<div key={i}>{row}</div>)
 		}
 
 		return(
