@@ -15,25 +15,12 @@
 	padding: 40px;
 	width: 150px;
 	height: 150px;
+	display: flex;
 }
 
 .Board:nth-child(1),
-.Board:nth-child(2),
-.Board:nth-child(3) {
+.Board:nth-child(2) {
   border-bottom: 1px solid white;
 }
 
-.Board:nth-child(7),
-.Board:nth-child(8),
-.Board:nth-child(9) {
-	border-top: 1px solid white;
-}
 
-.Board:nth-child(1),
-.Board:nth-child(2),
-.Board:nth-child(4),
-.Board:nth-child(5),
-.Board:nth-child(7),
-.Board:nth-child(8) {
-	border-right: 1px solid white;
-}

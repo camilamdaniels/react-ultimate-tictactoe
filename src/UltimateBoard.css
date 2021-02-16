@@ -21,3 +21,10 @@
 	/*padding: 80px;*/
 	align-items: center;
 }
+
+.UltimateBoard-winner {
+	font-size: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
